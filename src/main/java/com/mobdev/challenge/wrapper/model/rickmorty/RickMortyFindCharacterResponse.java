@@ -2,16 +2,11 @@ package com.mobdev.challenge.wrapper.model.rickmorty;
 
 import com.mobdev.challenge.wrapper.model.FindResponse;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
+
 @Getter
 @SuperBuilder
 @ToString

@@ -55,15 +55,19 @@ public class RickMortyWrapperService extends AbstractWrapperService {
 					.build();
 		}
 		
-		return new ResponseEntity<>(RickMortyFindCharacterResponse.builder()
-			.id(character.getId())
-			.name(character.getName())
-			.status(character.getStatus())
-			.species(character.getSpecies())
-			.type(character.getType())
-			.episode_count(character.getEpisode().size())
-			.origin(locationResponse)
-			.build(), HttpStatus.OK);
+		RickMortyFindCharacterResponse rickMortyFindCharacterResponse = RickMortyFindCharacterResponse.builder()
+												.id(character.getId())
+												.name(character.getName())
+												.status(character.getStatus())
+												.species(character.getSpecies())
+												.type(character.getType())
+												.episode_count(character.getEpisode().size())
+												.origin(locationResponse)
+												.build();
+		
+		log.debug("rickMortyFindCharacterResponse: {}", rickMortyFindCharacterResponse.toString());
+		
+		return new ResponseEntity<>(rickMortyFindCharacterResponse, HttpStatus.OK);
 		
 	}
 	
@@ -81,7 +85,7 @@ public class RickMortyWrapperService extends AbstractWrapperService {
         
 		}
 		catch (Exception e) {
-			log.error("The character does not exist {}", id, e);
+			log.error("The character does not exist {}", id);
 			return null;
 		}
 	}
